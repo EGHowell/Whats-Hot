@@ -4,7 +4,7 @@ import ApiCall from './ApiCall';
 
 
 function App() {
-  const [allCategory, setAllCategory] = useState(false)
+  // const [allCategory, setAllCategory] = useState(false)
   const [movieCategory, setMovieCategory] = useState(false);
   const [tvCategory, setTvCategory] = useState(false);
   const [celebCategory, setCelebCategory] = useState(true);
@@ -13,18 +13,18 @@ function App() {
   const [timeWindow, setTimeWindow] = useState('week');
 
 
-  useEffect( () => {
-    if (allCategory) {
-      setAllCategory(false)
-      setMovieCategory(false)
-      setCelebCategory(false)
-      setMediaType('all')
-    }
-  })
+  // useEffect( () => {
+  //   if (allCategory) {
+  //     setAllCategory(false)
+  //     setMovieCategory(false)
+  //     setCelebCategory(false)
+  //     setMediaType('all')
+  //   }
+  // })
 
   useEffect( () => {
     if (movieCategory) {
-      setAllCategory(false)
+      // setAllCategory(false)
       setTvCategory(false)
       setCelebCategory(false)
       setMediaType('movie')
@@ -33,7 +33,7 @@ function App() {
 
   useEffect( () => {
     if (tvCategory) {
-      setAllCategory(false)
+      // setAllCategory(false)
       setMovieCategory(false)
       setCelebCategory(false)
       setMediaType('tv')
@@ -42,7 +42,7 @@ function App() {
 
   useEffect( () => {
     if (celebCategory) {
-      setAllCategory(false)
+      // setAllCategory(false)
       setMovieCategory(false)
       setTvCategory(false)
       setMediaType('person')
@@ -69,7 +69,7 @@ function App() {
       <h1>Title</h1>
       <h2>H2</h2>
 
-      <button onClick={() => setAllCategory(true)}>ALL</button>
+      {/* <button onClick={() => setAllCategory(true)}>ALL</button> */}
       <button onClick={() => setMovieCategory(true)}>MOVIE</button>
       <button onClick = {() => setTvCategory(true)}>TV</button>
       <button onClick={() => setCelebCategory(true)}>CELEBRITY</button>
