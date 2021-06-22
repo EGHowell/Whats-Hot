@@ -1,13 +1,16 @@
 function TrendingStats(props){
     const{title, imgSrc, score, summary} = props;
 
+    const imgUrl = 'https://image.tmdb.org/t/p/w185';
     return (
         <li>
+            <h3>{title}</h3>
             <div>
-                <h3>{title}</h3>
-                <img src={imgSrc} alt= {'Poster of the movie ' + title} />
-                <p>{score}</p>
-                <p>{summary}</p>
+                <img src={`${imgUrl}${imgSrc}`} alt= {`Poster image of ${title}`}  />
+                <div>
+                    <p>{score}</p>
+                    <p>{summary}</p>
+                </div>
             </div>
         </li>
     )

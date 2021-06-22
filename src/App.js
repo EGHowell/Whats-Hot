@@ -1,31 +1,53 @@
 import { useState, useEffect } from 'react'
 
-import MovieOfDay from './MovieOfDay';
-import MovieOfWeek from './MovieOfWeek';
-import TvOfWeek from './TvOfWeek';
-import TvOfDay from './TvOfDay';
-
+import ApiCall from './ApiCall';
 
 
 function App() {
-  const [movieCategory, setMovieCategory] = useState(true);
+  const [allCategory, setAllCategory] = useState(false)
+  const [movieCategory, setMovieCategory] = useState(false);
   const [tvCategory, setTvCategory] = useState(false);
-  const [mediaType, setMediaType] = useState('');
-  const [timeWindow, setTimeWindow] = useState('');
+  const [celebCategory, setCelebCategory] = useState(true);
 
-  useEffect ( () => {
+  const [mediaType, setMediaType] = useState('movie');
+  const [timeWindow, setTimeWindow] = useState('week');
+
+
+  useEffect( () => {
+    if (allCategory) {
+      setAllCategory(false)
+      setMovieCategory(false)
+      setCelebCategory(false)
+      setMediaType('all')
+    }
+  })
+
+  useEffect( () => {
     if (movieCategory) {
+      setAllCategory(false)
       setTvCategory(false)
+      setCelebCategory(false)
       setMediaType('movie')
     }
   }, [movieCategory])
 
-  useEffect ( () => {
+  useEffect( () => {
     if (tvCategory) {
+      setAllCategory(false)
       setMovieCategory(false)
+      setCelebCategory(false)
       setMediaType('tv')
     }
   }, [tvCategory])
+
+  useEffect( () => {
+    if (celebCategory) {
+      setAllCategory(false)
+      setMovieCategory(false)
+      setTvCategory(false)
+      setMediaType('person')
+    }
+  }, [celebCategory])
 
 
   const [display, setDisplay] = useState(false);
@@ -46,9 +68,12 @@ function App() {
     <div className="App">
       <h1>Title</h1>
       <h2>H2</h2>
-      
+
+      <button onClick={() => setAllCategory(true)}>ALL</button>
+      <button onClick={() => setMovieCategory(true)}>MOVIE</button>
       <button onClick = {() => setTvCategory(true)}>TV</button>
-      <button onClick = {() => setMovieCategory(true)}>MOVIE</button>
+      <button onClick={() => setCelebCategory(true)}>CELEBRITY</button>
+    
   
       <ol>
         <button onClick={onClickWeek}>Week</button>
@@ -56,9 +81,8 @@ function App() {
 
         <h2> {mediaType} trending of the {timeWindow}</h2>
 
-        {movieCategory ? display ?<MovieOfDay /> : <MovieOfWeek /> : null}
+      <ApiCall media ={mediaType} time = {timeWindow}/>
 
-        {tvCategory ? display ? <TvOfDay /> : <TvOfWeek /> : null}
       </ol>
     </div>
   );
