@@ -35,7 +35,7 @@ function ApiCall(props) {
                             imgSrc={poster.poster_path || poster.profile_path}
                             title={poster.title || poster.name}
                             score={poster.vote_average || `Field: ${poster.known_for_department}`}
-                            summary={poster.overview}
+                            summary={poster.overview ||`Best Known For: | ${poster.known_for[0].title || poster.known_for[0].name} | ${poster.known_for[0].overview}`}
                         />) 
                     )
                 })
@@ -47,4 +47,3 @@ function ApiCall(props) {
 
 export default ApiCall;
 
-// `Best Known For: | ${poster.known_for[0].title || poster.known_for[0].name} | ${poster.known_for[0].overview}`
