@@ -6,7 +6,7 @@ function TrendingStats(props){
         <li>
             <h3>{title}</h3>
             <div>
-                <img src={`${imgUrl}${imgSrc}`} alt= {`Poster image of ${title}`}  />
+                <img src={`${imgUrl}${imgSrc}`} alt= {`Poster of ${title}`}  />
                 <div>
                     <p>{score}</p>
                     <p>{summary}</p>
