@@ -29,13 +29,13 @@ function ApiCall(props) {
             {
                 isLoading ? <p>Loading...</p> :
                 mediaPiece.map((poster) => {
-                    const getNestedObject = (nestedObj, pathArr) => {
-                        return pathArr.reduce((obj, key) =>
+                    const getNestedObject = (nestedObj, posterArray) => {
+                        return posterArray.reduce((obj, key) =>
                             (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
                     }
-                    const knownWork = getNestedObject (poster, ['known_for', '0', 'title' || 'name'])
-                    const workSummary = getNestedObject(poster, ['known_for', '0', 'overview']);
 
+                    const knownWork = getNestedObject (poster, ['known_for', '0', 'title' || 'name'])
+                    const workSummary = getNestedObject(poster, ['known_for', '0', 'overview'])
 
                     return (
                         (<TrendingStats
