@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 
 import TrendingStats from './TrendingStats';
-
+import NewStats from './NewStats';
 
 
 function ApiCall(props) {
@@ -24,18 +24,27 @@ function ApiCall(props) {
     }, [props.media, props.time])
 
 
+
     return (
         <div>
             {
                 isLoading ? <p>Loading...</p> :
                 mediaPiece.map((poster) => {
+                    const getNestedObject = (nestedObj, pathArr) => {
+                        return pathArr.reduce((obj, key) =>
+                            (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
+                    }
+                    const knownWork = getNestedObject (poster, ['known_for', '0', 'title' || 'name'])
+                    const workSummary = getNestedObject(poster, ['known_for', '0', 'overview']);
+
+
                     return (
                         (<TrendingStats
                             key={poster.id}
                             imgSrc={poster.poster_path || poster.profile_path}
                             title={poster.title || poster.name}
                             score={poster.vote_average || `Field: ${poster.known_for_department}`}
-                            summary={poster.overview ||`Best Known For: | ${poster.known_for[0].title || poster.known_for[0].name} | ${poster.known_for[0].overview}`}
+                            summary={poster.overview || `Known For:  || ${knownWork} || ${workSummary}`}
                         />) 
                     )
                 })
