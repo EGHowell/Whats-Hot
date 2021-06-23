@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 
 import TrendingStats from './TrendingStats';
-import NewStats from './NewStats';
 
 
 function ApiCall(props) {
