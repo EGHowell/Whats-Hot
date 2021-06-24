@@ -278,7 +278,7 @@ footer {
 @media (max-width: 950px) {
   .categorySelector {
     text-align: left;
-    position: relative;
+    right: 0;
   }
   .categorySelector button {
     font-size: 35px;
@@ -290,7 +290,7 @@ footer {
     font-size: 90px;
   }
   .categorySelector button {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 30px;
     margin-right: 0;
     margin-left: 0;
