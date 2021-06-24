@@ -278,7 +278,7 @@ footer {
 @media (max-width: 950px) {
   .categorySelector {
     text-align: left;
-    position: initial;
+    position: relative;
   }
   .categorySelector button {
     font-size: 35px;
@@ -292,6 +292,8 @@ footer {
   .categorySelector button {
     margin-top: 15px;
     font-size: 30px;
+    margin-right: 0;
+    margin-left: 0;
   }
   main button {
     font-size: 30px;
@@ -333,5 +335,11 @@ footer {
   .dropDown li{
     padding-left: 6px;
     padding-right: 6px;
+  }
+  nav button {
+    right: 55px;
+  }
+  .dropDown {
+    right: 55px;
   }
 }
