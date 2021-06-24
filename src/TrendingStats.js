@@ -9,7 +9,7 @@ function TrendingStats(props){
                 <img src = {`${imgUrl}${imgSrc}`} alt = {`Poster of ${title}`}  />
                 <div className = "mediaInfo">
                     <span className = "paragraph">
-                        <span className = "rating"><p>Rating: {score}</p></span>
+                        <span className = "rating"><p>{score}</p></span>
                         <p>{summary}</p>
                     </span>
                 </div>
