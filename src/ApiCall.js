@@ -45,7 +45,7 @@ function ApiCall(props) {
                             key = {poster.id}
                             imgSrc = {poster.poster_path || poster.profile_path}
                             title = {poster.title || poster.name}
-                            score = {`User Rating: ${poster.vote_average}` ||  poster.known_for_department}
+                            score={poster.known_for_department || `User Rating: ${poster.vote_average}` }
                             
                             summary = {poster.overview || `Known For || ${knownWorkM || knownworkT} || ${workSummary}`}
                         />) 
