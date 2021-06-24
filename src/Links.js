@@ -2,12 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 
-function Links(props) {
+function Links() {
     const facebook = <FontAwesomeIcon icon={faFacebookF} />
     const twitter = <FontAwesomeIcon icon={faTwitter} />
     const github = <FontAwesomeIcon icon={faGithub} />
     const linkedIn = <FontAwesomeIcon icon={faLinkedinIn} />
-const {icon} = props;
+
     return (
         
         <ul className="dropDown">
