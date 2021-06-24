@@ -4,12 +4,14 @@ function TrendingStats(props){
     const imgUrl = 'https://image.tmdb.org/t/p/w185';
     return (
         <li>
-            <h3>{title}</h3>
-            <div>
-                <img src={`${imgUrl}${imgSrc}`} alt= {`Poster of ${title}`}  />
-                <div>
-                    <p>{score}</p>
-                    <p>{summary}</p>
+            <h4>{title}</h4>
+            <div className = "apiDisplay">
+                <img src = {`${imgUrl}${imgSrc}`} alt = {`Poster of ${title}`}  />
+                <div className = "mediaInfo">
+                    <span className = "paragraph">
+                        <span className = "rating"><p>Rating: {score}</p></span>
+                        <p>{summary}</p>
+                    </span>
                 </div>
             </div>
         </li>

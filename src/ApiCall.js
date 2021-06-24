@@ -34,16 +34,20 @@ function ApiCall(props) {
                             (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
                     }
 
-                    const knownWork = getNestedObject (poster, ['known_for', '0', 'title' || 'name'])
+
+                    const knownWorkM = getNestedObject (poster, ['known_for', '0', 'title'])
+                    const knownworkT = getNestedObject(poster, ['known_for', '0', 'name'])
                     const workSummary = getNestedObject(poster, ['known_for', '0', 'overview'])
+
 
                     return (
                         (<TrendingStats
-                            key={poster.id}
-                            imgSrc={poster.poster_path || poster.profile_path}
-                            title={poster.title || poster.name}
-                            score={poster.vote_average || `Field: ${poster.known_for_department}`}
-                            summary={poster.overview || `Known For:  || ${knownWork} || ${workSummary}`}
+                            key = {poster.id}
+                            imgSrc = {poster.poster_path || poster.profile_path}
+                            title = {poster.title || poster.name}
+                            score = {poster.vote_average ||  poster.popularity}
+                            
+                            summary = {poster.overview || `Known For || ${knownWorkM || knownworkT} || ${workSummary}`}
                         />) 
                     )
                 })
