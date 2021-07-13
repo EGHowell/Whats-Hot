@@ -80,7 +80,6 @@ const [showLinks, setShowLinks] = useState(false)
     <div className="App wrapper">
     
         <header>
-          <a className="resetButton" href="#list">BACK TO TOP</a>
           <nav>
             <div className = "myLinks">
 
@@ -107,8 +106,10 @@ const [showLinks, setShowLinks] = useState(false)
             <button onClick={() => setCelebCategory(true)}>CELEBRITY</button>
           </div>
         </header>
-      
+        <a className="resetButton" href="#list">BACK TO TOP</a>
+
         <main>
+
           <div className ="timeWindowSelector">
             <button  onClick={onClickWeek}>Week</button>
             <button onClick={onClickDay}>Day</button>
